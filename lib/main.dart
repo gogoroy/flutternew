@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 
 void main() => runApp(SignUpApp());
 
@@ -239,26 +238,38 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          Align(
-            alignment: Alignment.centerLeft,
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: Colors.black,
-              onPressed: () {}, // onpressd argument required
-            ),
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Colors.white,
+      //   actions: <Widget>[
+      //     Align(
+      //       alignment: Alignment.center,
+      //       child: IconButton(
+      //         icon: Icon(Icons.arrow_back),
+      //         color: Colors.black,
+      //         onPressed: () {}, // onpressd argument required
+      //       ),
+      //     )
+      //   ],
+      // ),
       body: Align(
         alignment: Alignment.topCenter,
         child: ListView(
           children: [
             Container(
               decoration: BoxDecoration(color: Colors.white),
-              padding: EdgeInsets.fromLTRB(30, 30, 0, 30),
+              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  color: Colors.black,
+                  onPressed: () {}, // onpressd argument required
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.white),
+              padding: EdgeInsets.fromLTRB(30, 10, 0, 30),
               child: Text(
                 'Edit Profile',
                 textAlign: TextAlign.left,
@@ -269,12 +280,29 @@ class Main extends StatelessWidget {
               ),
             ),
             Container(
-              decoration: BoxDecoration(color: Colors.transparent),
+              decoration: BoxDecoration(color: Colors.white),
               height: 200,
               child: Center(
-                child: CircleAvatar(
-                  radius: 60,
-                  backgroundColor: Colors.blue,
+                child: Stack(
+                  children: [
+                    CircleAvatar(
+                      radius: 70,
+                      backgroundImage: AssetImage(
+                          'assets/images/5478kb.jpg'), // 本機一定要用AssetImage
+                    ),
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.lightBlue[200],
+                        radius: 20,
+                        child: Icon(
+                          Icons.camera_enhance,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -304,7 +332,7 @@ class Main extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.favorite,
+              Icons.favorite_border,
               color: Colors.blue[200],
             ),
             title: Text(
