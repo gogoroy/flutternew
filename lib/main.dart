@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './login/login_page.dart';
 
 void main() => runApp(SignUpApp());
 
@@ -7,8 +8,10 @@ class SignUpApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/': (context) => Main(),
+        '/': (context) => LoginPage(),
+        '/signIn': (context) => SignIn(),
         '/welcome': (context) => WelcomeScreen(),
+        '/main': (context) => Main(),
       },
     );
   }
@@ -59,8 +62,10 @@ class _SignUpFormState extends State<SignUpForm> {
           // Text('Sign up', style: Theme.of(context).textTheme.headline4),
           Container(
             decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(width: 2, color: Colors.grey[300]))),
+              border: Border(
+                bottom: BorderSide(width: 2, color: Colors.grey[300]),
+              ),
+            ),
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Row(
@@ -90,8 +95,10 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(width: 2, color: Colors.grey[300]))),
+              border: Border(
+                bottom: BorderSide(width: 2, color: Colors.grey[300]),
+              ),
+            ),
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Row(
@@ -121,8 +128,10 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(width: 2, color: Colors.grey[300]))),
+              border: Border(
+                bottom: BorderSide(width: 2, color: Colors.grey[300]),
+              ),
+            ),
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Row(
@@ -152,8 +161,10 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           Container(
             decoration: BoxDecoration(
-                border: Border(
-                    bottom: BorderSide(width: 2, color: Colors.grey[300]))),
+              border: Border(
+                bottom: BorderSide(width: 2, color: Colors.grey[300]),
+              ),
+            ),
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 20),
               child: Row(
@@ -238,40 +249,45 @@ class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.white,
-      //   actions: <Widget>[
-      //     Align(
-      //       alignment: Alignment.center,
-      //       child: IconButton(
-      //         icon: Icon(Icons.arrow_back),
-      //         color: Colors.black,
-      //         onPressed: () {}, // onpressd argument required
-      //       ),
-      //     )
-      //   ],
-      // ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          color: Colors.black,
+          onPressed: () {}, // onpressd argument required
+        ),
+        backgroundColor: Colors.white,
+        // actions: <Widget>[
+        //   Align(
+        //     alignment: Alignment.center,
+        //     child: IconButton(
+        //       icon: Icon(Icons.arrow_back),
+        //       color: Colors.black,
+        //       onPressed: () {}, // onpressd argument required
+        //     ),
+        //   )
+        // ],
+      ),
       body: Align(
         alignment: Alignment.topCenter,
         child: ListView(
           children: [
-            Container(
-              decoration: BoxDecoration(color: Colors.white),
-              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: Colors.black,
-                  onPressed: () {}, // onpressd argument required
-                ),
-              ),
-            ),
+            // Container(
+            //   decoration: BoxDecoration(color: Colors.white),
+            //   padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+            //   child: Align(
+            //     alignment: Alignment.centerLeft,
+            //     child: IconButton(
+            //       icon: Icon(Icons.arrow_back),
+            //       color: Colors.black,
+            //       onPressed: () {}, // onpressd argument required
+            //     ),
+            //   ),
+            // ),
             Container(
               decoration: BoxDecoration(color: Colors.white),
               padding: EdgeInsets.fromLTRB(30, 10, 0, 30),
               child: Text(
-                'Edit Profile',
+                'Edits Profile',
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 30,
@@ -319,9 +335,17 @@ class Main extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.blue[200],
+            icon: SizedBox(
+              height: 24,
+              child: IconButton(
+                icon: Icon(Icons.search),
+                color: Colors.blue[200],
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  print('dadsd');
+                  Navigator.of(context).pushNamed('/welcome');
+                },
+              ),
             ),
             title: Text(
               'Explore',
@@ -331,9 +355,17 @@ class Main extends StatelessWidget {
             ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite_border,
-              color: Colors.blue[200],
+            icon: SizedBox(
+              height: 24,
+              child: IconButton(
+                icon: Icon(Icons.favorite_border),
+                color: Colors.blue[200],
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  print('dadsd');
+                  Navigator.of(context).pushNamed('/welcome');
+                },
+              ),
             ),
             title: Text(
               'Trips',
@@ -343,9 +375,17 @@ class Main extends StatelessWidget {
             ),
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              color: Colors.blue[200],
+            icon: SizedBox(
+              height: 24,
+              child: IconButton(
+                icon: Icon(Icons.person),
+                color: Colors.blue[200],
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  print('dadsd');
+                  Navigator.of(context).pushNamed('/welcome');
+                },
+              ),
             ),
             title: Text(
               'Profile',
